@@ -12,12 +12,12 @@ import (
     "text/template"
 
     "github.com/Masterminds/sprig/v3"
-    "github.com/bluebrown/treasure-map/funcs"
+    "github.com/bluebrown/treasure-map/textfunc"
 )
 
-func TestMakeFuncMap(t *testing.T) {
-    tpl := template.New(rootTemplateName)
-    tpl.Funcs(funcs.ClosureMap(sprig.TxtFuncMap(), tpl))
+func main() {
+    tpl := template.New("")
+    tpl.Funcs(textfunc.MapClosure(sprig.TxtFuncMap(), tpl))
 }
 ```
 

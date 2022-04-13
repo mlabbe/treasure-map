@@ -1,4 +1,4 @@
-package funcs
+package textfunc
 
 import (
 	"gopkg.in/yaml.v3"

@@ -1,10 +1,10 @@
-package funcs
+package textfunc
 
 import (
 	"text/template"
 )
 
-func AttachToMap(baseMap map[string]any) map[string]any {
+func Register(baseMap map[string]any) map[string]any {
 	baseMap["table"] = Table
 	baseMap["fromJson"] = FromJson
 	baseMap["toYaml"] = ToYaml
@@ -19,8 +19,14 @@ func AttachToMap(baseMap map[string]any) map[string]any {
 	return baseMap
 }
 
-func ClosureMap(baseMap map[string]any, t *template.Template) map[string]any {
-	funcMap := AttachToMap(baseMap)
+func Map() map[string]any {
+	funcMap := make(map[string]any)
+	return Register(funcMap)
+
+}
+
+func MapClosure(baseMap map[string]any, t *template.Template) map[string]any {
+	funcMap := Register(baseMap)
 	funcMap["include"] = MakeInclude(t)
 	funcMap["tpl"] = MakeTpl(t)
 	return funcMap
