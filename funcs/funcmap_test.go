@@ -1,16 +1,16 @@
-package treasuremap_test
+package funcs_test
 
 import (
 	"testing"
 	"text/template"
 
-	treasuremap "github.com/bluebrown/treasure-map/pkg"
+	"github.com/bluebrown/treasure-map/funcs"
 )
 
 func TestMakeFuncMap(t *testing.T) {
 	tpl := template.New("test")
 	baseMap := make(map[string]any)
-	fm := treasuremap.MakeFuncMap(baseMap, tpl)
+	fm := funcs.NewMap(baseMap, tpl)
 	if _, ok := fm["include"]; !ok {
 		t.Error("include is not found")
 	}
