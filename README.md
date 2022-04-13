@@ -35,3 +35,6 @@ fromYaml    | convert from yaml                                   | interface{} 
 toToml      | convert to toml                                     | string        | `{{ toToml . }}`
 mustToToml  | convert to toml, errors if encoding fails           | string, error | `{{ mustToToml . }}`
 fromToml    | convert from toml                                   | interface{}   | `{{ fromToml . }}`
+toXml       | convert to xml                                      | string        | `{{ toXml . }}`
+mustToXml   | convert to xml, errors if encoding fails            | string, error | `{{ mustToXml . }}`
+fromXml     | convert from xml                                    | interface{}   | `{{ fromXml . }}`

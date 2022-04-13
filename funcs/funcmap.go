@@ -13,6 +13,9 @@ func AttachToMap(baseMap map[string]any) map[string]any {
 	baseMap["toToml"] = ToToml
 	baseMap["mustToToml"] = MustToToml
 	baseMap["fromToml"] = FromToml
+	baseMap["toXml"] = ToXml
+	baseMap["mustToXml"] = MustToXml
+	baseMap["fromXml"] = FromXml
 	return baseMap
 }
 

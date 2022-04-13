@@ -9,8 +9,8 @@ import (
 	"text/tabwriter"
 )
 
-func Table(v interface{}) string {
-	s, ok := v.([]interface{})
+func Table(v any) string {
+	s, ok := v.([]any)
 	if !ok {
 		return ""
 	}
@@ -25,9 +25,9 @@ func Table(v interface{}) string {
 	var err error
 
 	switch s[0].(type) {
-	case map[string]interface{}:
+	case map[string]any:
 		err = mapTable(w, s)
-	case []interface{}:
+	case []any:
 		err = sliceTable(w, s)
 	default:
 		return ""
@@ -42,15 +42,15 @@ func Table(v interface{}) string {
 
 }
 
-func mapTable(w *tabwriter.Writer, v []interface{}) error {
+func mapTable(w *tabwriter.Writer, v []any) error {
 
 	keys := []string{}
 	var vals []string
 
 	for i, row := range v {
-		r, ok := row.(map[string]interface{})
+		r, ok := row.(map[string]any)
 		if !ok {
-			return errors.New("mapTable: row is not map[string]interface{}")
+			return errors.New("mapTable: row is not map[string]any")
 		}
 
 		if i == 0 {
@@ -88,14 +88,14 @@ func mapTable(w *tabwriter.Writer, v []interface{}) error {
 	return nil
 }
 
-func sliceTable(w *tabwriter.Writer, v []interface{}) error {
+func sliceTable(w *tabwriter.Writer, v []any) error {
 
 	var vals []string
 
 	for i, row := range v {
-		r, ok := row.([]interface{})
+		r, ok := row.([]any)
 		if !ok {
-			return errors.New("sliceTable: row is not []interface{}")
+			return errors.New("sliceTable: row is not []any")
 		}
 
 		if i == 0 {
