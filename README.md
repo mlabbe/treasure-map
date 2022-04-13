@@ -27,6 +27,11 @@ Function    | Description                                         | Returns     
 ------------|-----------------------------------------------------|---------------|------------------------------
 include     | render a previously associated template             | string        | `{{ include "my-helper" . }}`
 tpl         | render a template snippet                           | string        | `{{ tpl "{{ .foo.bar }}" . }}`
+table       | convert to table, list of object or list of lists   | string        | `{{ table . }}`
+fromJson    | convert a json string to map or slice (any)         | interface{}   | `{{ fromJson . }}`
 toYaml      | convert to yaml                                     | string        | `{{ toYaml . }}`
 mustToYaml  | convert to yaml, errors if encoding fails           | string, error | `{{ mustToYaml . }}`
-table       | convert to table, list of object or list of lists   | string        | `{{ table . }}`
+fromYaml    | convert from yaml                                   | interface{}   | `{{ fromYaml . }}`
+toToml      | convert to toml                                     | string        | `{{ toToml . }}`
+mustToToml  | convert to toml, errors if encoding fails           | string, error | `{{ mustToToml . }}`
+fromToml    | convert from toml                                   | interface{}   | `{{ fromToml . }}`

@@ -19,3 +19,12 @@ func MustToYaml(v interface{}) (string, error) {
 	}
 	return string(b), nil
 }
+
+func FromYaml(s string) any {
+	var v any
+	err := yaml.Unmarshal([]byte(s), &v)
+	if err != nil {
+		return nil
+	}
+	return v
+}
