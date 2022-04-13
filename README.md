@@ -7,8 +7,18 @@ A collection of go template functions. Some functions are inspired by [helm](htt
 Some function require to close over the template itself. Therefore, the MakeFuncMap function takes the template as argument and returns the fully constructed map. In the below example [sprigs](http://masterminds.github.io/sprig/) TxtFuncMap is passed as base map.
 
 ```go
-tpl := template.New("example")
-tpl.Funcs(treasuremap.MakeFuncMap(sprig.TxtFuncMap(), tpl))
+import (
+    "testing"
+    "text/template"
+
+    "github.com/Masterminds/sprig/v3"
+    "github.com/bluebrown/treasure-map/funcs"
+)
+
+func TestMakeFuncMap(t *testing.T) {
+    tpl := template.New(rootTemplateName)
+    tpl.Funcs(funcs.ClosureMap(sprig.TxtFuncMap(), tpl))
+}
 ```
 
 ## Functions

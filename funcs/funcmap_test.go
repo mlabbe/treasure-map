@@ -10,7 +10,7 @@ import (
 func TestMakeFuncMap(t *testing.T) {
 	tpl := template.New("test")
 	baseMap := make(map[string]any)
-	fm := funcs.NewMap(baseMap, tpl)
+	fm := funcs.ClosureMap(baseMap, tpl)
 	if _, ok := fm["include"]; !ok {
 		t.Error("include is not found")
 	}

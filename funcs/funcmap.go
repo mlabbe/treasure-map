@@ -11,7 +11,7 @@ func AttachToMap(baseMap map[string]any) map[string]any {
 	return baseMap
 }
 
-func NewMap(baseMap map[string]any, t *template.Template) map[string]any {
+func ClosureMap(baseMap map[string]any, t *template.Template) map[string]any {
 	funcMap := AttachToMap(baseMap)
 	funcMap["include"] = MakeInclude(t)
 	funcMap["tpl"] = MakeTpl(t)
