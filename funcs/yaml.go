@@ -4,7 +4,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-func ToYaml(v interface{}) string {
+func ToYaml(v any) string {
 	b, err := yaml.Marshal(v)
 	if err != nil {
 		return ""
@@ -12,7 +12,7 @@ func ToYaml(v interface{}) string {
 	return string(b)
 }
 
-func MustToYaml(v interface{}) (string, error) {
+func MustToYaml(v any) (string, error) {
 	b, err := yaml.Marshal(v)
 	if err != nil {
 		return "", err
