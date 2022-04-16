@@ -21,7 +21,7 @@ func Table(v any) string {
 
 	w := new(tabwriter.Writer)
 	buf := new(bytes.Buffer)
-	w.Init(buf, 0, 4, 0, '\t', 0)
+	w.Init(buf, 0, 8, 0, '\t', 0)
 	var err error
 
 	switch s[0].(type) {
