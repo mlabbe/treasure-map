@@ -103,7 +103,11 @@ func sliceTable(w *tabwriter.Writer, v []any) error {
 		}
 
 		for j, v := range r {
-			vals[j] = fmt.Sprintf("%v", v)
+			if i == 0 {
+				vals[j] = strings.Title(fmt.Sprintf("%v", v))
+			} else {
+				vals[j] = fmt.Sprintf("%v", v)
+			}
 		}
 
 		if i == len(v)-1 {
