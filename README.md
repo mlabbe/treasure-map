@@ -35,3 +35,4 @@ fromYaml    | convert from yaml                                   | interface{} 
 toToml      | convert to toml                                     | string        | `{{ toToml . }}`
 mustToToml  | convert to toml, errors if encoding fails           | string, error | `{{ mustToToml . }}`
 fromToml    | convert from toml                                   | interface{}   | `{{ fromToml . }}`
+iter        | get an iterator to use in range                     | []int         | `{{ range iter 5 }}{{.}}{{end}}`
