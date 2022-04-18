@@ -98,6 +98,12 @@ func TestFuncs(t *testing.T) {
 			giveData:     map[string]any{"toml": "a = 1\nb = 2\n"},
 			wantRendered: "map[a:1 b:2]",
 		},
+		{
+			name:         "iter",
+			giveTemplate: `{{ range iter 5 }}{{ . }}{{ end }}`,
+			giveData:     map[string]any{"toml": "a = 1\nb = 2\n"},
+			wantRendered: "01234",
+		},
 	}
 	for _, tt := range tests {
 		tt := tt

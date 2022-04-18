@@ -13,6 +13,7 @@ func Register(baseMap map[string]any) map[string]any {
 	baseMap["toToml"] = ToToml
 	baseMap["mustToToml"] = MustToToml
 	baseMap["fromToml"] = FromToml
+	baseMap["iter"] = Iter
 	return baseMap
 }
 
