@@ -23,9 +23,9 @@ func Map() map[string]any {
 
 }
 
-func MapClosure(baseMap map[string]any, t *template.Template) map[string]any {
+func MapClosure(baseMap map[string]any, t *template.Template, fatalIfMissing bool) map[string]any {
 	funcMap := Register(baseMap)
-	funcMap["include"] = MakeInclude(t)
+	funcMap["include"] = MakeInclude(t, fatalIfMissing)
 	funcMap["tpl"] = MakeTpl(t)
 	return funcMap
 }
