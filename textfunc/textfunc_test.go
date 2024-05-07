@@ -5,7 +5,7 @@ import (
 	"testing"
 	"text/template"
 
-	"github.com/bluebrown/treasure-map/textfunc"
+	"github.com/mlabbe/treasure-map/textfunc"
 )
 
 func TestMapClosure(t *testing.T) {
