@@ -1,4 +1,4 @@
-module github.com/bluebrown/treasure-map
+module github.com/mlabbe/treasure-map
 
 go 1.18
 
